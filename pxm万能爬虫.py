@@ -3,7 +3,8 @@ import yt_dlp
 
 def list_formats(url):
     ydl_opts = {
-        'listformats': True
+        'listformats': True,
+        'cookiefile': cookies_file
     }
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
@@ -13,6 +14,7 @@ def download_video(url, format_code):
         'format': format_code,
         'outtmpl': '%(title)s.%(ext)s',
         'merge_output_format': 'mp4',
+        'cookiefile': cookies_file,
         'postprocessors': [{
             'key': 'FFmpegVideoConvertor',
             'preferedformat': 'mp4',
