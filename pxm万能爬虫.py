@@ -20,7 +20,7 @@ def download_video(url, format_code):
     }
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
-video_url = input("请输入视频网址")
+video_url = input("请输入视频网址:  ")
 list_formats(video_url)
 format_code = input("请输入你选择的格式代码: ")
 
